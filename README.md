@@ -6,6 +6,22 @@ The code has been refactored and hardened for production, resolving critical vul
 
 ---
 
+## 🌐 Live Demo
+
+The application is deployed and live at: **[https://lendsafeai-assessment-frontend-new.onrender.com/](https://lendsafeai-assessment-frontend-new.onrender.com/)**
+
+---
+
+## 📸 Application Screenshots
+
+### 1. Underwriting Decision: Approve (Healthy Profile)
+![Underwriting Approval](./images/screenshot_approve.png)
+
+### 2. Underwriting Decision: Reject (Failed Rules Check)
+![Underwriting Rejection](./images/screenshot_reject.png)
+
+---
+
 ## System Architecture
 
 The following Mermaid diagram shows the flow of requests from the React client, through the middleware filters, to the backend service layer and upstream LLM wrapper.
