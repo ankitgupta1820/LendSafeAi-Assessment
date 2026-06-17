@@ -522,6 +522,7 @@ function App() {
                   <p style={{ fontSize: "0.78rem", fontWeight: 600 }}>Paste Custom Text Doc</p>
                   <input
                     type="text"
+                    aria-label="Custom document name input"
                     placeholder="Document Name (e.g. John Payslip)"
                     className="custom-input"
                     value={customName}
@@ -531,6 +532,7 @@ function App() {
                   <div className="custom-row">
                     <select
                       className="custom-select"
+                      aria-label="Custom document type selector"
                       value={customType}
                       onChange={(e) => setCustomType(e.target.value)}
                     >
@@ -539,6 +541,7 @@ function App() {
                     </select>
                   </div>
                   <textarea
+                    aria-label="Custom document text editor"
                     placeholder="Paste OCR text or financial raw statements here..."
                     className="custom-textarea"
                     value={customText}
@@ -556,6 +559,7 @@ function App() {
                   <div className="custom-row">
                     <select
                       className="custom-select"
+                      aria-label="Uploaded file type selector"
                       style={{ width: "100%" }}
                       value={fileUploadType}
                       onChange={(e) => setFileUploadType(e.target.value)}
@@ -564,18 +568,30 @@ function App() {
                       <option value="Bank Statement">Bank Statement</option>
                     </select>
                   </div>
-                  <div style={{
-                    border: "1px dashed var(--border-color-hover)",
-                    borderRadius: "8px",
-                    padding: "16px",
-                    textAlign: "center",
-                    background: "rgba(255,255,255,0.01)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "8px",
-                    cursor: "pointer"
-                  }} onClick={() => document.getElementById("file-input").click()}>
+                  <div 
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Choose local document file to upload"
+                    style={{
+                      border: "1px dashed var(--border-color-hover)",
+                      borderRadius: "8px",
+                      padding: "16px",
+                      textAlign: "center",
+                      background: "rgba(255,255,255,0.01)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "8px",
+                      cursor: "pointer"
+                    }} 
+                    onClick={() => document.getElementById("file-input").click()}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        document.getElementById("file-input").click();
+                      }
+                    }}
+                  >
                     <span style={{ fontSize: "1.5rem" }}>📤</span>
                     <span style={{ fontSize: "0.75rem", color: "var(--text-secondary)", wordBreak: "break-all" }}>
                       {selectedFile ? selectedFile.name : "Select PDF or PNG/JPG Image"}
@@ -583,6 +599,7 @@ function App() {
                     <input
                       id="file-input"
                       type="file"
+                      aria-label="Hidden file input"
                       accept=".pdf,image/png,image/jpeg,image/jpg"
                       style={{ display: "none" }}
                       onChange={handleFileChange}
@@ -889,6 +906,7 @@ function App() {
             <div className="chat-input-area">
               <input
                 type="text"
+                aria-label="Type your loan assessment question"
                 className="chat-input"
                 placeholder={activeDoc ? "Ask a grounded auditor question..." : "Select a document to begin chat"}
                 value={chatInput}
