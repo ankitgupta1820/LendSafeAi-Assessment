@@ -1,7 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000/api";
+const getApiBase = () => {
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    if (hostname.includes("lendsafeai-assessment-frontend-new.onrender.com")) {
+      return "https://lendsafeai-assessment-new.onrender.com/api";
+    }
+  }
+  return import.meta.env.VITE_API_BASE || "http://localhost:5000/api";
+};
+
+const API_BASE = getApiBase();
 
 function App() {
   // Authentication / Access Control Scope State
