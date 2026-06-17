@@ -1,0 +1,17 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Env files (contains LLM keys)
+.env
+**/.env
+
+# Build outputs
+dist/
+**/dist/
+
+# Test / Generated files
+mock_payslip_alice_base64.txt
+**/*_base64.txt
+.system_generated/
+.gemini/
