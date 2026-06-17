@@ -1,0 +1,6 @@
+# Ignore local node dependency folders and builds
+backend/node_modules/
+frontend/node_modules/
+frontend/dist/
+.git/
+*.log
