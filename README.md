@@ -79,3 +79,7 @@ The LLM extracts the following schema structure:
    npm run dev
    ```
    The Vite developer server will start (usually on `http://localhost:5173`). Open the browser link to interact with the application.
+
+---
+
+*Made with ❤️ by Ankit*
